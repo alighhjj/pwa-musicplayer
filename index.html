@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWA音乐播放器</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="player-container">
+        <audio id="audio-element" controls></audio>
+        <div class="controls">
+            <button id="play-btn">▶</button>
+            <input type="range" id="progress" value="0">
+            <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+        </div>
+        <ul id="playlist"></ul>
+    </div>
+    <div id="offline-alert" style="display:none; position:fixed; top:0; width:100%; background:#ff9800; color:white; text-align:center; padding:10px;">
+        当前处于离线模式
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+    <!-- 在body末尾添加安装提示 -->
+    <div id="installPrompt" style="display:none; position:fixed; bottom:20px; right:20px; background:#2196f3; color:white; padding:12px; border-radius:8px; cursor:pointer;">
+      点击安装应用
+    </div>
+</body>
+</html>
