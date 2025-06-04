@@ -1,0 +1,12 @@
+{
+  "name": "pwa-music-player",
+  "compatibility_date": "2025-06-04",
+  "assets": {
+    "directory": "./",
+    "include": ["**/*"]
+  },
+  "routes": [
+    {"handle": "filesystem"},
+    {"match": "/*", "status": 404}
+  ]
+}
